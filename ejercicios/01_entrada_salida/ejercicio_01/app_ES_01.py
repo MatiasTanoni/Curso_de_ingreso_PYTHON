@@ -29,7 +29,7 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        alert(title="Esto no anda, funciona", message="Esto no anda, Funciona")
+        alert(title="ej1", message="Esto no anda, Funciona")
         # salida_prompt = prompt("Titulo", "mensaje")
         # alert("Salida Prompt", type(salida_prompt))
         #salida_question = question("Titulo", "Mensaje")

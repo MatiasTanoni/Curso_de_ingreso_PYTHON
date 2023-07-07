@@ -47,15 +47,61 @@ class App(customtkinter.CTk):
         self.btn_total_iva = customtkinter.CTkButton(master=self, text="TOTAL c/IVA", command=self.btn_total_iva_on_click)
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
+
+
+
     def btn_total_on_click(self):
-        pass
+        operador_a = self.txt_importe_1.get()
+        operador_b = self.txt_importe_2.get()
+        operador_c = self.txt_importe_3.get()
+
+        numero_a = int(operador_a)
+        numero_b = int(operador_b)
+        numero_c = int(operador_c)
+
+        resultado_numeros = numero_a + numero_b + numero_c
+
+        mensaje = f"el resultado es {resultado_numeros}"
+
+        alert(title="tp1a", message= mensaje)
+
 
     def btn_promedio_on_click(self):
-        pass
+        operador_a = self.txt_importe_1.get()
+        operador_b = self.txt_importe_2.get()
+        operador_c = self.txt_importe_3.get()
+
+        numero_a = int(operador_a)
+        numero_b = int(operador_b)
+        numero_c = int(operador_c)
+
+        resultado_numeros = numero_a + numero_b + numero_c 
+        resultado = resultado_numeros // 3
+
+        mensaje = f"el resultado es {resultado}"
+
+        alert(title="tp1b", message= mensaje)
+
 
     def btn_total_iva_on_click(self):
-        pass      
-    
+        operador_a = self.txt_importe_1.get()
+        operador_b = self.txt_importe_2.get()
+        operador_c = self.txt_importe_3.get()
+
+        numero_a = int(operador_a)
+        numero_b = int(operador_b)
+        numero_c = int(operador_c)
+
+        resultado_numeros = numero_a + numero_b + numero_c
+        iva = (resultado_numeros * 21) // 100
+        resultado = iva + resultado_numeros
+
+        mensaje = f"el resultado es {resultado}"
+
+        alert(title="tp1c", message= mensaje) 
+
+        
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
