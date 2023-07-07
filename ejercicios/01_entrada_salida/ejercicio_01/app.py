@@ -28,7 +28,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        alert(title="Esto no anda, funciona", message="Esto no anda, Funciona")
+        # salida_prompt = prompt("Titulo", "mensaje")
+        # alert("Salida Prompt", type(salida_prompt))
+        #salida_question = question("Titulo", "Mensaje")
+        #alert("Salida Question", salida_question)
         
 
 if __name__ == "__main__":
