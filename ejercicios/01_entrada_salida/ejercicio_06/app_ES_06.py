@@ -41,19 +41,10 @@ class App(customtkinter.CTk):
 
 
     def btn_sumar_on_click(self):
-        operador_a_texto = self.txt_operador_a.get()
-        operador_b_texto = self.txt_operador_b.get()
-
-        a_numero = int(operador_a_texto)
-        b_numero = int(operador_b_texto)   
-
-        resultado_numero = a_numero + b_numero
-        mensaje = f"El resultado es: {resultado_numero}"
-
-        alert(title="ej6", message= mensaje)
-
-
-
+        pass
+     
+        
 if __name__ == "__main__":
     app = App()
+    app.geometry("300x300")
     app.mainloop()

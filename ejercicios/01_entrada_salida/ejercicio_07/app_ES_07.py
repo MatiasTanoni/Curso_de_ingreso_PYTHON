@@ -50,53 +50,18 @@ class App(customtkinter.CTk):
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_sumar_on_click(self):
-        operador_a_texto = self.txt_operador_a.get()
-        operador_b_texto = self.txt_operador_b.get()
-
-        numero_a = int(operador_a_texto)
-        numero_b = int(operador_b_texto)
-        resultado_a_b = numero_a + numero_b
-        mensaje = f"el resultado es {resultado_a_b}"
-        alert(title = "ej7" , message= mensaje)
-
+        pass
 
     def btn_restar_on_click(self):
-        operador_a_texto = self.txt_operador_a.get()
-        operador_b_texto = self.txt_operador_b.get()
-
-        numero_c = int(operador_a_texto)
-        numero_d = int(operador_b_texto)
-        resultado_c_d = numero_c - numero_d
-        mensaje = f"el resultado es {resultado_c_d}"
-        alert(title="ej7", message= mensaje)
-
+        pass
 
     def btn_multiplicar_on_click(self):
-        operador_a_texto = self.txt_operador_a.get()
-        operador_b_texto = self.txt_operador_b.get()
-
-        numero_e = int(operador_a_texto)
-        numero_f = int(operador_b_texto)
-        resultado_e_f = numero_e * numero_f
-        mensaje = f"el resultado es {resultado_e_f}"
-        alert(title="ej7", message= mensaje)
-
+        pass
 
     def btn_dividir_on_click(self):
-        operador_a_texto = self.txt_operador_a.get()
-        operador_b_texto = self.txt_operador_b.get()
-
-        numero_g = int(operador_a_texto)
-        numero_h = int(operador_b_texto)
-        resultado_g_h = numero_g // numero_h
-        mensaje = f"el resultado es {resultado_g_h}"
-        alert(title="ej7", message= mensaje)
-
-
-
-
-
+        pass
         
 if __name__ == "__main__":
     app = App()
+    app.geometry("300x300")
     app.mainloop()
