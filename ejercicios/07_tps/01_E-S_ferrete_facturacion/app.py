@@ -18,7 +18,7 @@ class App(customtkinter.CTk):
         super().__init__()
 
         # configure window
-        self.title("UTN FRA")
+        self.title("CALCULADORA UTN FRA")
 
         self.label_1 = customtkinter.CTkLabel(master=self, text="Producto 1")
         self.label_1.grid(row=0, column=0, padx=20, pady=10)
@@ -55,9 +55,9 @@ class App(customtkinter.CTk):
         operador_b = self.txt_importe_2.get()
         operador_c = self.txt_importe_3.get()
 
-        numero_a = int(operador_a)
-        numero_b = int(operador_b)
-        numero_c = int(operador_c)
+        numero_a = float(operador_a)
+        numero_b = float(operador_b)
+        numero_c = float(operador_c)
 
         resultado_numeros = numero_a + numero_b + numero_c
 
@@ -71,9 +71,9 @@ class App(customtkinter.CTk):
         operador_b = self.txt_importe_2.get()
         operador_c = self.txt_importe_3.get()
 
-        numero_a = int(operador_a)
-        numero_b = int(operador_b)
-        numero_c = int(operador_c)
+        numero_a = float(operador_a)
+        numero_b = float(operador_b)
+        numero_c = float(operador_c)
 
         resultado_numeros = numero_a + numero_b + numero_c 
         resultado = resultado_numeros // 3
@@ -88,9 +88,9 @@ class App(customtkinter.CTk):
         operador_b = self.txt_importe_2.get()
         operador_c = self.txt_importe_3.get()
 
-        numero_a = int(operador_a)
-        numero_b = int(operador_b)
-        numero_c = int(operador_c)
+        numero_a = float(operador_a)
+        numero_b = float(operador_b)
+        numero_c = float(operador_c)
 
         resultado_numeros = numero_a + numero_b + numero_c
         iva = (resultado_numeros * 21) // 100
