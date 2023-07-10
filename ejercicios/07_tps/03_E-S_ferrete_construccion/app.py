@@ -63,8 +63,31 @@ class App(customtkinter.CTk):
         self.btn_calcular.grid(row=3, pady=10, columnspan=2, sticky="nsew")
 
     def btn_calcular_on_click(self):
-        pass
+        largo_texto = self.txt_largo.get()
+        ancho_texto = self.txt_ancho.get()
+        largo = float(largo_texto)
+        ancho = float(ancho_texto)
+
+        area = largo * ancho
+        perimetro = 2 * (largo + ancho)
+        mensaje = f"el area es: {area} y el perimetro es: {perimetro}    "
         
+        postes_gruesos = (perimetro // 250) + 4
+        mensaje += f"Cantidad de postes de quebracho Grueso de 2.4 mts: {postes_gruesos}    "
+
+        postes_finos = (perimetro // 12) - postes_gruesos
+        mensaje += f"Cantidad de postes de quebracho Fino de 2.2 mts:  {postes_finos}    "
+
+        varillas = perimetro // 2
+        mensaje += f"Cantidad de varillas:  {varillas}     "
+
+
+        alambre = perimetro * 7
+        mensaje += f"Cantidad de alambre: {alambre}     "
+        
+
+        alert("TP_3", mensaje)
+    
 
 if __name__ == "__main__":
     app = App()
