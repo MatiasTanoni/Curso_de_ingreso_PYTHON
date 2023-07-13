@@ -38,7 +38,50 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+        cantidad_texto = self.combobox_cantidad.get()
+        cantidad = int(cantidad_texto)
+        precio = 800
+        importe = 0
+        #A
+        if cantidad >= 6:
+            descuento = (precio * cantidad) * 0.5
+            mensaje = f"el precio final con el 50% de descuento es $:{descuento}" 
+        #B    
+        else:  
+            if cantidad == 5 and marca == "ArgentinaLuz":
+                descuento = (precio * cantidad) * 0.4
+                mensaje = f"el precio final con el 40% de descuento es $:{descuento}"
+            else:
+                descuento = (precio * cantidad) * 0.3
+                mensaje = f"el precio final con el 30% de descuento es $:{descuento}"
+        #C    
+        if cantidad == 4 and marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+            descuento = (precio * cantidad) * 0.25
+            mensaje = f"el precio final con el 25% de descuento es $:{descuento}"
+        else: 
+            descuento = (precio * cantidad) * 0.20
+            mensaje = f"el precio final con el 20% de descuento es $:{descuento}"
+        #D
+        if cantidad == 3 and marca == "ArgentinaLuz":
+            descuento = (precio * cantidad) * 0.15
+            mensaje = f"el precio final con el 15% de descuento es $:{descuento}"
+        else:
+            if marca == "FelipeLamparas":
+                descuento = (precio * cantidad) * 0.10
+                mensaje = f"el precio final con el 10% de descuento es $:{descuento}"
+            else:
+                descuento = (precio * cantidad) * 0.5
+                mensaje = f"el precio final con el 5% de descuento es ${descuento}"
+        #E        
+        if importe > 4000: 
+            importe + descuento * 0.05  
+        importe_final = (precio * cantidad) 
+            
+    
+        
+        alert(title="tp04", message= mensaje)    
+
         
     
 if __name__ == "__main__":
