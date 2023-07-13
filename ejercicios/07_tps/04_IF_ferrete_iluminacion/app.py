@@ -38,22 +38,22 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        marca = self.combobox_marca.get()
+        """ marca = self.combobox_marca.get()
         cantidad_texto = self.combobox_cantidad.get()
         cantidad = int(cantidad_texto)
         precio = 800
         importe = 0
         #A
         if cantidad >= 6:
-            descuento = (precio * cantidad) * 0.5
+            descuento = (precio * cantidad) * 0.50
             mensaje = f"el precio final con el 50% de descuento es $:{descuento}" 
         #B    
         else:  
             if cantidad == 5 and marca == "ArgentinaLuz":
-                descuento = (precio * cantidad) * 0.4
+                descuento = (precio * cantidad) * 0.40
                 mensaje = f"el precio final con el 40% de descuento es $:{descuento}"
             else:
-                descuento = (precio * cantidad) * 0.3
+                descuento = (precio * cantidad) * 0.30
                 mensaje = f"el precio final con el 30% de descuento es $:{descuento}"
         #C    
         if cantidad == 4 and marca == "ArgentinaLuz" or marca == "FelipeLamparas":
@@ -71,19 +71,63 @@ class App(customtkinter.CTk):
                 descuento = (precio * cantidad) * 0.10
                 mensaje = f"el precio final con el 10% de descuento es $:{descuento}"
             else:
-                descuento = (precio * cantidad) * 0.5
+                descuento = (precio * cantidad) * 0.05
                 mensaje = f"el precio final con el 5% de descuento es ${descuento}"
         #E        
         if importe > 4000: 
             importe + descuento * 0.05  
-            mensaje = (precio * cantidad) 
-            
-    
-        
-        alert(title="tp04", message= mensaje)    
+            mensaje = (precio * cantidad)  
 
+        alert(title="tp04", message= mensaje) """
+
+        marca = self.combobox_marca.get()
+        cantidad_texto = self.combobox_cantidad.get()
+        cantidad = int(cantidad_texto)
+        precio = 800
+
+        if cantidad >= 6:
+            descuento = (precio * cantidad) * 0.50
+
+        elif cantidad == 5:
+            if marca == "ArgentinaLuz":
+                    descuento = (precio * cantidad) * 0.60
+            else:
+                    descuento = (precio * cantidad) * 0.70 
+
+        elif cantidad == 4:
+                if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                    descuento = (precio * cantidad) * 0.75
+                else:
+                    descuento = (precio * cantidad) * 0.80
+
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                descuento = (precio * cantidad) * 0.85  
+            elif marca == "FelipeLamparas":
+                descuento = (precio * cantidad) * 0.90
+            else:
+                descuento = (precio * cantidad) * 0.95  
         
-    
+        else:
+            descuento = (precio * cantidad)
+
+        if descuento > 4000:
+            descuento = descuento * 0.95
+
+
+        mensaje = f"el precio final es de {descuento}"
+
+        alert(title="tp04", message= mensaje)
+ 
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
