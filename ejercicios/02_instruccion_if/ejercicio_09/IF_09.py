@@ -29,7 +29,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = random.randint(1,10)
+
+        mensaje = f"su numero es {numero}"
+
+        alert(title="if-09", message=mensaje)
         
 
 if __name__ == "__main__":

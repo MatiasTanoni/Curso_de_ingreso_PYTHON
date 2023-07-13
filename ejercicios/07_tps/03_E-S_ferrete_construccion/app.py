@@ -18,8 +18,8 @@ a la hora de realizar un alambrado permetral, se le solicita al usuario que ingr
 
     EJ 36 MTS X 24 MTS 
     (G)Poste Quebracho Grueso de 2.4 mts
-    (V)Poste Quebracho Fino de 2.2 mts
-    (F)Varillas
+    (F)Poste Quebracho Fino de 2.2 mts
+    (V)Varillas
     
     G V V V V V F V V V V V F V V V V V G
     V                                   V
@@ -72,7 +72,7 @@ class App(customtkinter.CTk):
         perimetro = 2 * (largo + ancho)
         mensaje = f"el area es: {area} y el perimetro es: {perimetro}    "
         
-        postes_gruesos = (perimetro // 250) + 4
+        postes_gruesos = 4 + (perimetro // 250) 
         mensaje += f"Cantidad de postes de quebracho Grueso de 2.4 mts: {postes_gruesos}    "
 
         postes_finos = (perimetro // 12) - postes_gruesos
@@ -86,7 +86,7 @@ class App(customtkinter.CTk):
         mensaje += f"Cantidad de alambre: {alambre}     "
         
 
-        alert("TP_3", mensaje)
+        alert(title="TP_3", message = mensaje)
     
 
 if __name__ == "__main__":
