@@ -76,7 +76,7 @@ class App(customtkinter.CTk):
         #E        
         if importe > 4000: 
             importe + descuento * 0.05  
-        importe_final = (precio * cantidad) 
+            mensaje = (precio * cantidad) 
             
     
         
