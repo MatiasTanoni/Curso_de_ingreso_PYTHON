@@ -80,7 +80,11 @@ class App(customtkinter.CTk):
 
         alert(title="tp04", message= mensaje) """
 
-        marca = self.combobox_marca.get()
+
+
+
+
+        """  marca = self.combobox_marca.get()
         cantidad_texto = self.combobox_cantidad.get()
         cantidad = int(cantidad_texto)
         precio = 800
@@ -117,13 +121,48 @@ class App(customtkinter.CTk):
 
         mensaje = f"el precio final es de {descuento}"
 
-        alert(title="tp04", message= mensaje)
+        alert(title="tp04", message= mensaje) """
  
+        
+        marca = self.combobox_marca.get()
+        cantidad_texto = self.combobox_cantidad.get()
+        cantidad = int(cantidad_texto)
+        precio = 800
 
+        match cantidad :
+            case 6|7|8|9|10|11|12:
+                descuento = (precio * cantidad) * 0.50
+            case 5:
+                match (marca):
+                    case "ArgentinaLuz":
+                        descuento = (precio * cantidad) * 0.60
+                    case _:
+                        descuento = (precio * cantidad) * 0.70
+            case 4:
+                match (marca):
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                        descuento = (precio * cantidad) * 0.75
+                    case _:
+                        descuento = (precio * cantidad) * 0.80
+            case 3:    
+                match (marca):
+                    case "ArgentinaLuz":
+                        descuento = (precio * cantidad) * 0.85
+                    case "FelipeLamparas":
+                        descuento = (precio * cantidad) * 0.90
+                    case _:
+                        descuento = (precio * cantidad) * 0.95
+            case _:
+                descuento = 0
 
+        
 
+        if descuento > 4000:
+            descuento = descuento * 0.95    
 
+        mensaje = f"el resultado final es {descuento}"
 
+        alert(title="match-tp04", message= mensaje)    
 
 
 
