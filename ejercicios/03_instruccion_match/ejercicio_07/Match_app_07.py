@@ -29,7 +29,20 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        destino = self.combobox_destino.get()
+
+        match destino:
+            case "Bariloche":
+                mensaje= "Sur"
+            case "Mar del plata":
+                mensaje= "Este"
+            case "Cataratas":
+                mensaje= "Norte"
+            case "Ushuaia":
+                mensaje= "Sur"
+
+        alert(title="ej07-Match", message= mensaje)         
+        
     
     
 if __name__ == "__main__":

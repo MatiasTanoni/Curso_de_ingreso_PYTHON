@@ -52,7 +52,39 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        destinos = self.combobox_destino.get()
+        estaciones = self.combobox_estaciones.get()
+        precio = 15000
+
+        match estaciones:
+            case "Invierno":
+                match (destinos):
+                    case "Bariloche":
+                        precio_final = precio * 1.20
+                    case "Cataratas" | "Cordoba":
+                        precio_final = precio * 0.90  
+                    case "Mar del plata":
+                        precio_final = precio * 0.80 
+            case "Verano":
+                match (destinos):
+                    case "Bariloche":
+                        precio_final = precio * 0.80
+                    case "Cataratas" | "Cordoba":
+                        precio_final = precio * 1.10
+                    case "Mar del plata":
+                        precio_final = precio * 1.20  
+            case "Primavera" | "Otoño":
+                match (destinos):
+                    case "Bariloche":
+                        precio_final = precio * 1.10
+                    case "Cataratas":
+                        precio_final = precio * 1.10
+                    case "Mar del Plata":
+                        precio_final = precio * 1.10
+                    case "Cordoba":
+                        precio_final = precio                            
+
+        alert(title="ej09-match", message= precio_final)        
             
     
 if __name__ == "__main__":
