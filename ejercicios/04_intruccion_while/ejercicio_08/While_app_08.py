@@ -32,9 +32,30 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        suma_acumulada = 0
+        producto = 1
 
-    
+        #ingreso hasta que el usuario quiera
+        while True:
+            #hasta que presione el boton cancelar (En el prompt) o el usuario ingrese cero.    
+            numero_ingresado = prompt("ej08", "ingrese un numero, cancelar o 0 para salir")
+
+            if numero_ingresado == None or numero_ingresado == "0":
+                break
+            numero_ingresado = int(numero_ingresado)
+
+            if numero_ingresado > 0:
+                suma_acumulada = suma_acumulada + numero_ingresado
+
+            elif numero_ingresado <0:
+                producto = producto * numero_ingresado
+
+        self.txt_suma_acumulada.delete(0,100)
+        self.txt_suma_acumulada.insert(0,suma_acumulada)
+        self.txt_producto.delete(0,100)
+        self.txt_producto.insert(0,producto)
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -33,9 +33,40 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        acumulador_suma_negativos = 0
+        acumulador_suma_positivos = 0
+        contador_negativo = 0
+        contador_positivos = 0
+        contador_ceros = 0
+        numero_ingresado = ""
+        diferencia = 0
 
-    
+        while numero_ingresado != None:
+            numero_ingresado = prompt("ej10while", "Ingrese un numero")  
+
+            if numero_ingresado != None:
+                numero_ingresado = int(numero_ingresado)
+
+                if numero_ingresado < 0:
+                    acumulador_suma_negativos = acumulador_suma_negativos + numero_ingresado
+                    contador_negativo = contador_negativo + 1
+                elif numero_ingresado > 0:
+                    acumulador_suma_positivos = acumulador_suma_positivos + numero_ingresado
+                    contador_positivos = contador_positivos + 1
+                else:
+                    contador_ceros = contador_ceros + 1
+            
+            diferencia = contador_positivos - contador_negativo
+
+        mensaje = f"Suma acumulada de los negativos es: {acumulador_suma_negativos}   "
+        mensaje += f"La duma acumulada de los positivos {acumulador_suma_positivos}"
+        mensaje += f"Cantidad de numeros positivos ingresados"
+        mensaje += f"Cantidad de numeros negativos ingresados"
+        mensaje += f"Cantidad de ceros"
+        mensaje += f"Diferencia entre la cantidad de los números positivos ingresados y los negativos"
+
+        alert("ej10while", message=mensaje)
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

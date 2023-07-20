@@ -25,7 +25,15 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_numero_on_click(self):
-        pass
+        
+        while True:
+            numero = prompt("ej04While", "Ingrese un numero")
+            numero = int(numero)
+            if numero >=0 and numero <=9:
+                alert(title="ej04while", message=f"su numero es correcto y es {numero}")
+                break
+            else:
+                alert(title="while04", message= "ingrese un numero entre el 0 y el 9")    
     
 if __name__ == "__main__":
     app = App()
