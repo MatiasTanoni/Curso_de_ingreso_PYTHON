@@ -50,7 +50,48 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+         
+        apellido = prompt("ej05while", "ingrese apellido")    
+        while (apellido == None or apellido == "") or not apellido.isalpha():
+            apellido = prompt("ej05while", "ingresa de nuevo")
+
+
+        edad = prompt("whiletp05", "ingrese edad")
+        while edad == None or not edad.isdigit() or int(edad) < 18 or int(edad) > 90:
+            edad = prompt("tp05while", "reigrese su edad")
+        edad = int(edad)
+      
+
+        estado_civil = prompt("estado_civil","Ingrese su estado civil")
+        while (estado_civil == None or not estado_civil.isalpha()) or estado_civil != "Soltero" and estado_civil != "Soltera" and estado_civil != "Casado" and estado_civil != "Casada" and estado_civil != "Divorciado" and estado_civil != "Divorciada" and estado_civil != "Viudo" and estado_civil != "Viuda":
+            estado_civil = prompt("estado_civil", "ingrese devuelta si estado civil")
+
+        if estado_civil == "Soltero" or "Soltera":
+            estado_civil = "Soltero/a"
+        elif estado_civil == "Casado" or "Casada":
+            estado_civil = "Casado/a"
+        elif estado_civil == "Divorciado" or "Divorciada":
+            estado_civil = "Divorciado/a"
+        else:
+            estado_civil = "Viudo/a"           
+
+
+
+
+        legajo = prompt("legajo", prompt="ingrese su legajo")
+        while legajo == None or not legajo.isdigit() or int(legajo) < 1000 or int(legajo) > 9999:
+            legajo = prompt("legajo", "ingrese un legajo valido")
+        legajo = int(legajo)
+
+        self.txt_apellido.delete(0, 100)
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.delete(0, 100)
+        self.txt_edad.insert(0, edad)
+        self.combobox_tipo.set(estado_civil)
+        self.txt_legajo.delete(0, 100)
+        self.txt_legajo.insert(0, legajo)
+
+
 
 
 if __name__ == "__main__":
