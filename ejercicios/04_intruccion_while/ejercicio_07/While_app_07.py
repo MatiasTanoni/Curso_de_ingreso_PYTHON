@@ -40,7 +40,7 @@ class App(customtkinter.CTk):
             numero_ingresado = prompt("ej06while", "Ingrese un numero")
 
             if numero_ingresado != None:
-                #continue
+                #continue 
                 numero_ingresado = int(numero_ingresado)
 
                 contador = contador + 1

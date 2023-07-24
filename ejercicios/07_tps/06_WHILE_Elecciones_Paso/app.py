@@ -28,8 +28,8 @@ class App(customtkinter.CTk):
             master=self, text="Validar", command=self.btn_validar_on_click)
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
-    def btn_validar_on_click(self):
-        pass
+    def btn_validar_on_click(self):     
+        pass     
 
 
 if __name__ == "__main__":

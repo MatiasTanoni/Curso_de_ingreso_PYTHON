@@ -23,7 +23,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass    
+        lista_numeros = range(5,0,-1)
+        for numeros in lista_numeros:
+            alert("for-ej02", numeros)   
        
             
 

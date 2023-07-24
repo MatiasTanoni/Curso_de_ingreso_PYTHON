@@ -23,7 +23,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
+
+        lista_numeros = range(1,6,1)
+        for numeros in lista_numeros:
+            alert("for_ej1", f"{numeros}")
        
             
 

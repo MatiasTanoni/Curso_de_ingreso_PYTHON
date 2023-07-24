@@ -24,7 +24,14 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        numero_minimo = self.lista_datos[0]
+
+        for numero in self.lista_datos:
+            if numero < numero_minimo:
+                numero_minimo = numero
+
+        alert("Ej03_listas", f"El numero maximo es {numero_minimo}")        
+        
     
     
 if __name__ == "__main__":

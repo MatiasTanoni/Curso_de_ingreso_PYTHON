@@ -21,7 +21,22 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero_ingresado = prompt("for-ej08","ingrese un numero")
+        while numero_ingresado == None or not numero_ingresado.isdigit():
+            numero_ingresado = prompt("for-ej06", "Ingrese un numero devuelta")
+
+        numero_ingresado = int(numero_ingresado)
+        contador = 0
+        lista_numeros = range(1,numero_ingresado+1)
+
+        for numero in lista_numeros:
+            if numero_ingresado % numero == 0:
+                contador = contador + 1
+
+        if contador == 2:
+            alert("Primo", "El numero ingresado es primo")
+        else:
+            alert("NO primo", "El numero ingresado no es primo")            
     
 if __name__ == "__main__":
     app = App()

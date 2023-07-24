@@ -24,7 +24,18 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        suma = 0
+
+        for numero in self.lista_datos:
+            suma = suma + numero
+
+        cantidad_elementos_en_lista = len(self.lista_datos) 
+
+        if cantidad_elementos_en_lista != 0:   
+            promedio = suma / cantidad_elementos_en_lista
+            alert("ej06_lista", f"El promedio de los valores es: {promedio}")    
+        else:
+            alert("ej06_lista", f"La lista esta vacia")    
     
 if __name__ == "__main__":
     app = App()

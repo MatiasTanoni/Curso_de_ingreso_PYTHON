@@ -22,8 +22,21 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
+        numero_ingresado = prompt("for-ej6", "Ingrese un numero")
+        while numero_ingresado == None or not numero_ingresado.isdigit():
+            numero_ingresado = prompt("for-ej6-for", "Ingrese un numero devuelta")
+
+        numero_ingresado = int(numero_ingresado)
+        contador_pares = 0 
+
+        for numero in range(1, numero_ingresado+1):
+            if numero % 2 == 0:
+                alert("numero", numero)
+                contador_pares = contador_pares + 1
+
+        alert("for-ej6", f"se encontraron {contador_pares} numeros pares") 
+              
+      
     
 if __name__ == "__main__":
     app = App()

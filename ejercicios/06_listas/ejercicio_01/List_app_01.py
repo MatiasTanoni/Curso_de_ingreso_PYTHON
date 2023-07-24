@@ -24,10 +24,26 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        for elemento in self.lista_datos:
+            alert("ej01-list", elemento)
+       
+
+       
+        # lista_de_nombres = []
+
+        # lista_de_nombres.append ("Juan")
+        # lista_de_nombres.append ("matias")
+        # lista_de_nombres.append ("pedro")
+        # lista_de_nombres.append ("pedro")
+
+        # # print(lista_de_nombres.count("pedro"))
+
+        # len(lista_de_nombres)
+        # print(lista_de_nombres)
+       
         
         
-    
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

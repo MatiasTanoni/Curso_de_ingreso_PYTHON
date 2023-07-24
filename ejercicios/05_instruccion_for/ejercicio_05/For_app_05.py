@@ -22,7 +22,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        for _ in range(100):
+            respuesta = question("for-ej-05", "¿Desea continuar?")
+            if not respuesta:
+            #if respuesta == False:    
+                break
         
     
 if __name__ == "__main__":

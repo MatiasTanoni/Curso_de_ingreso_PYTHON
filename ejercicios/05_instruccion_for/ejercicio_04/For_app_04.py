@@ -21,8 +21,17 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
+        for _ in range(100):
+            valor = prompt("ej04for", "ingrese un valor")
+            valor = int(valor)
+            if valor == 9:
+                alert("ej04for", f"valor ingresado correctamente {valor}")
+                break
+            else:
+                alert("ej04", "valor ingresado incorrectamente")
+            
+            
+
     
 if __name__ == "__main__":
     app = App()
