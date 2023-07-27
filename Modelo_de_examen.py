@@ -75,15 +75,51 @@ class App(customtkinter.CTk):
 
 
     def btn_agregar_on_click(self):
-        pass
-                
+        #Tomar Datos
+        peso = self.txt_peso_articulo.get()
+        unidad_medida = self.combobox_tipo_de_peso.get()
 
+        #Validar Datos
+        peso_es_valido = False
+        contador_de_puntos = 0
+
+        if peso:
+            for letra in peso:
+                if not letra.isdecimal() and letra != ".":
+                    peso_es_valido = False
+                    break
+                elif letra == ".":
+                    contador_de_puntos += 1
+                    if contador_de_puntos > 1:
+                        peso_es_valido = False
+                        break
+                else:
+                    peso_es_valido = True
+
+            peso = float(peso)
+
+            if unidad_medida == "Onzas":
+                peso = peso * 28.3495
+
+            self.lista_pesos.append(peso)
+
+            if peso <= 0:
+                peso_es_valido = False                
+
+
+        if peso_es_valido:
+            mensaje = "El peso es valido"
+        else:
+            mensaje = "El peso no es valido"
+
+        alert("", mensaje)
 
     def btn_mostrar_on_click(self):
-        pass
+        for pesos_en_lista in self.lista_pesos:
+            alert("Pesos en la lista", pesos_en_lista)
 
     def btn_informar_on_click(self):
-       pass
+        pass
 
        
 if __name__ == "__main__":

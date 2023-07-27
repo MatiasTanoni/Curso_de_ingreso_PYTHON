@@ -30,7 +30,7 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):     
         maximo_votos = 0
-        minimo_votos = None
+        minimo_votos = 0
         candidato_maximo_votos = ""
         candidato_minimo_votos = ""
         total_votos = 0
@@ -52,23 +52,26 @@ class App(customtkinter.CTk):
 
                     
             votos = prompt("votos", "ingrese los votos")
-            while votos == None or not votos.isdigit() or votos <= 0:
+            while votos == None or not votos.isdigit():
                 votos = prompt("votos", "Error!, Ingrese nuevamente los votos")
+            votos = int(votos)
             
-               
-            total_votos = total_votos + votos
-
-           
-            if maximo_votos == 0 and minimo_votos == 0:
-                maximo_votos = votos
-                minimo_votos = votos
-            if votos >= maximo_votos:
-                candidato_maximo_votos = nombre
-                maximo_votos = votos
-            elif votos <= minimo_votos:
-                candidato_minimo_votos = nombre
-                edad_menos_votado = edad
-                minimo_votos = votos
+             
+            if votos > 0:
+                total_votos = total_votos + votos
+                if maximo_votos == 0 and minimo_votos == 0:
+                    maximo_votos = votos
+                    minimo_votos = votos
+                if votos >= maximo_votos:
+                    candidato_maximo_votos = nombre
+                    maximo_votos = votos
+                if votos <= minimo_votos:
+                    candidato_minimo_votos = nombre
+                    edad_menos_votado = edad
+                    minimo_votos = votos
+            else:
+                print("Error!", "Error el voto debe ser mayor a 0")        
+                continue
 
             candidatos += 1            
  

@@ -42,7 +42,7 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
 
-        while True:
+        for _ in range(10):
 
             nombre = prompt("Nombre", "Ingrese su nombre")
             while nombre == None or not nombre.isalpha():
@@ -65,9 +65,7 @@ class App(customtkinter.CTk):
             while puesto == None or not puesto.isalpha() or puesto !="Jr" and puesto!="Ssr" and puesto != "Sr":
                 puesto = prompt("puesto", "Error!,Ingrese nuevamente su puesto (Jr - Ssr - Sr) ")
 
-            continuar = question("Titulo", "¿Desea continuar?")
-            if not continuar:
-                break
+                
 
             
 
