@@ -75,51 +75,101 @@ class App(customtkinter.CTk):
 
 
     def btn_agregar_on_click(self):
-        #Tomar Datos
-        peso = self.txt_peso_articulo.get()
-        unidad_medida = self.combobox_tipo_de_peso.get()
+        validacion = True
+        contador_puntos = 0
 
-        #Validar Datos
-        peso_es_valido = False
-        contador_de_puntos = 0
+        peso_ingresado = self.txt_peso_articulo.get()
+        unidad_de_medida = self.combobox_tipo_de_peso.get()
+        
+        if peso_ingresado != "":
+            for letra in peso_ingresado:
+                if letra == ".":
+                    contador_puntos += 1
 
-        if peso:
-            for letra in peso:
-                if not letra.isdecimal() and letra != ".":
-                    peso_es_valido = False
-                    break
-                elif letra == ".":
-                    contador_de_puntos += 1
-                    if contador_de_puntos > 1:
-                        peso_es_valido = False
-                        break
-                else:
-                    peso_es_valido = True
-
-            peso = float(peso)
-
-            if unidad_medida == "Onzas":
-                peso = peso * 28.3495
-
-            self.lista_pesos.append(peso)
-
-            if peso <= 0:
-                peso_es_valido = False                
-
-
-        if peso_es_valido:
-            mensaje = "El peso es valido"
+                if letra.isalpha() or letra == " ":
+                    validacion = False            
         else:
-            mensaje = "El peso no es valido"
+            validacion = False
+            
+        if contador_puntos >= 2:
+            validacion = False            
+    
+        if validacion:
+            peso_ingresado = float(peso_ingresado)
 
-        alert("", mensaje)
+            if peso_ingresado <= 0:
+                validacion = False
+
+        if validacion:
+            alert("Numero", "El peso ingresado es correcto")
+
+            if unidad_de_medida == "Onzas":
+                peso_ingresado = peso_ingresado * 28.3495
+            
+            self.lista_pesos.append(peso_ingresado)
+        else:
+            alert("Error", "Error! El peso ingresado no es correcto")
+            
+
+        self.txt_peso_articulo.delete(0,100) 
 
     def btn_mostrar_on_click(self):
-        for pesos_en_lista in self.lista_pesos:
-            alert("Pesos en la lista", pesos_en_lista)
+        contador = 0
+
+        for peso in self.lista_pesos:
+            print(f"\nPeso: {peso}")
+            print(f"Posicion: {contador}" )
+            contador += 1
 
     def btn_informar_on_click(self):
-        pass
+        lista_numeros_repetidos = [] 
+        lista_mayores_promedio = []
+        contador = 0
+        contador_2 = 0
+        acumulador_peso = 0
+        bandera = True
+
+        for peso in self.lista_pesos:
+            contador += 1
+            acumulador_peso += peso 
+            for peso_2 in self.lista_pesos:
+                contador_2 += 1
+                if peso_2 == peso and contador != contador_2:
+                        
+                    if lista_numeros_repetidos.count(peso) == 0:
+                        lista_numeros_repetidos.append(peso)
+
+            contador_2 = 0
+
+            if bandera:
+                peso_mas_liviano = peso
+                bandera = False
+            
+            if peso < peso_mas_liviano:
+                peso_mas_liviano = peso
+
+        if contador != 0:
+            promedio_peso = acumulador_peso / contador    
+        else:
+            promedio_peso = 0
+
+        for peso in self.lista_pesos:
+            if peso > promedio_peso:
+                lista_mayores_promedio.append(peso)
+
+        alert("Peso", f"El peso mas liviano es: {peso_mas_liviano}")
+
+        for numero_repetido in lista_numeros_repetidos:
+            alert("Numero repetido", f"Numero repetido: {numero_repetido}")  
+
+        alert("Promedio", f"El promedio de peso es: {promedio_peso}")
+
+        for numero in lista_mayores_promedio:
+            alert("Numeros", f"Numeros mayores al promedio: {numero}")  
+            
+        alert("Cantidad", f"La cantidad de articulos que superan el peso promedio es: {len(lista_mayores_promedio)}")
+
+
 
        
 if __name__ == "__main__":

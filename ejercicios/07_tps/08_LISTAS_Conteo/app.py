@@ -44,11 +44,83 @@ class App(customtkinter.CTk):
         self.lista = []
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+
+        numero_ingresado = ""
+
+        while numero_ingresado != None:
+            numero_ingresado = prompt("Numero", "Ingrese un numero")
+            
+            if numero_ingresado == None:
+                break
+
+            if numero_ingresado == "" or numero_ingresado.isalpha():
+                continue
+            
+            numero_ingresado = int(numero_ingresado)
+
+            self.lista.append(numero_ingresado)
+
 
     def btn_mostrar_estadisticas_on_click(self):
-        pass
+        #a. La suma acumulada de los negativos
 
+        acumulador_negativos = 0
+        
+        for numero in self.lista:
+            if numero < 0:
+                acumulador_negativos += numero
+        alert("acumulador de negativos", f"acumulador de negativos: {acumulador_negativos}")  
+        #b La suma acumulada de los positivos
+        acumulador_positivos = 0
+        
+        for numero in self.lista:
+            if numero > 0:
+                acumulador_positivos += numero
+        alert("acumulador de positivos", f"acumulador de positivos: {acumulador_positivos}")        
+        #c. Cantidad de números positivos ingresados
+        contador_positivos = 0
+        for numero in self.lista:
+            if numero > 0:
+                contador_positivos += 1
+        alert("contador positivos", f"La cantidad de numeros positivos son:{contador_positivos}")
+        #d. Cantidad de números negativos ingresados
+        contador_negativos = 0
+        for numero in self.lista:
+            if numero < 0:
+                contador_negativos += 1
+        alert("contador negativos", f"La cantidad de numeros negativos son:{contador_negativos}")        
+        #e. Cantidad de ceros
+        contador_ceros = 0
+        for numero in self.lista:
+            if numero == 0:
+                contador_ceros += 1
+        alert("contador ceros", f"La cantidad de numeros que son ceros son: {contador_ceros}")        
+        #f. El minimo de los negativos
+        minimo_negativo = 0
+        for numero in self.lista:
+            if numero < 0:
+                minimo_negativo = numero
+                if numero < minimo_negativo:
+                    minimo_negativo = numero
+        alert("mininimo negativos", f"el minimo de los negativos es: {minimo_negativo}")
+        #g. El maximo de los positivos
+        maximo_positivo = 0
+        for numero in self.lista:
+            if numero > 0:
+                maximo_positivo = numero
+                if numero > maximo_positivo:
+                    maximo_positivo = numero
+        alert("maximos positivos", f"el minimo de los negativos es: {maximo_positivo}")
+        #h. El promedio de los negativos
+        acumulador_negativos = 0
+        contador_negativos = 0
+        for numero in self.lista:
+            if numero <0:
+                contador_negativos += 1
+                acumulador_negativos += numero
+        promedio = acumulador_negativos / contador_negativos
+        alert("promedio", f"el promedio de los negativos es: {promedio}")        
+   
 
 if __name__ == "__main__":
     app = App()
